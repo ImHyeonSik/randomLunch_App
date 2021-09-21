@@ -8,6 +8,9 @@
 
 import React from 'react';
 import type {Node} from 'react';
+import { Provider } from "react-redux";
+import {createStore, applyMiddleware} from 'redux';
+import { NavigationContainer } from "@react-navigation/native";
 import {
   SafeAreaView,
   ScrollView,
@@ -25,6 +28,13 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+const middlewares = [];
+if (__DEV__) {
+  const createDebugger = require('redux-flipper').default;
+  const actionsBlacklist = [];
+  middlewares.push(createDebugger({actionsBlacklist}));
+}
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
