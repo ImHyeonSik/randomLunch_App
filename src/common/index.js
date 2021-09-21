@@ -1,6 +1,6 @@
 import {Linking} from 'react-native'
 import {Dim} from './dimen'
-// import Img from '../img'
+import Img from '../img'
 import Color from './color'
 import {t} from './string'
 import Style from './style'
